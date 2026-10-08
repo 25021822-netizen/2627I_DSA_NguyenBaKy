@@ -12,26 +12,20 @@ import static java.util.stream.Collectors.toList;
 
 class Resultb5 {
 
-    /*
-     * Complete the 'insertionSort2' function below.
-     *
-     * The function accepts following parameters:
-     *  1. INTEGER n
-     *  2. INTEGER_ARRAY arr
-     */
-
     public static void insertionSort2(int n, List<Integer> arr) {
         for(int i = 1; i < n; i++){
-            if(arr.get(i-1)> arr.get(i)){
-                int j = i-1;
-                while((arr.get(j)> arr.get(i)) && j >=0){
-                    j--;
+            int key = arr.get(i);
+            for(int j = i-1; j >=0; j--){
+                if(arr.get(j) > key){
+                    arr.set(j+1, arr.get(j));
+                    arr.set(j, key);
+
                 }
-                int temp = arr.get(j);
-                arr.set(j, arr.get(i));
-                arr.set(i,temp);
-                System.out.println(arr);
             }
+            for (int k = 0; k < n; k++) {
+            System.out.print(arr.get(k) + (k == n - 1 ? "" : " "));
+        }
+        System.out.println();
         }
 
     }
